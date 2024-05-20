@@ -11,7 +11,6 @@ function App() {
   return (
     <>
       <Router allRoutes={allRoutes} />
-      {/* <Login /> */}
     </>
   );
 }
