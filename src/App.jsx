@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Router from "./router/Router";
 import publicRoutes from "./router/routes/publicRoutes";
-import Login from "./views/auth/Login";
+import { getRoutes } from "./router/routes";
+import { privateRoutes } from "./router/routes/PrivateRoutes";
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([...publicRoutes]);
+  // const [routes, setRoutes] = useState([...privateRoutes]);
+  // console.log(allRoutes);
+  // console.log("routes", routes);
 
-  console.log(allRoutes);
+  useEffect(() => {
+    const routes = getRoutes();
+    setAllRoutes([...allRoutes, routes]);
+    console.log(routes);
+  }, []);
 
   return (
     <>
